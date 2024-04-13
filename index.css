@@ -13,6 +13,7 @@
     background-size: cover;
     padding: 10px 10%;
     overflow: hidden;
+    position: relative;
 
 }
 nav{
@@ -104,4 +105,18 @@ animation-delay: 1s;
         transform: translateY(0px);
     }
 }
+.feature-img {
+    display: inline-block;
+    width: 530px;
+   position: absolute;
+   right: 10%;
+   bottom: 3.5%;
+   }
+   
+.feature-img.anim{
+
+animation-delay: 1s;
+}
+    
+
 
