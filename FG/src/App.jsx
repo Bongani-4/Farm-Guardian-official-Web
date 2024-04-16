@@ -1,4 +1,5 @@
 
+import { Outlet } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
 
   return (
    <>
-   <h1 className= 'font-italic text-indigo-700'>fg website</h1></>
+   <Outlet/>
+   </>
   )
 }
 
