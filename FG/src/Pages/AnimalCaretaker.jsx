@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const AnimalCaretaker = () => {
   return (
-    <div className="text-Green"> HOme page</div>
+    
+    <div className="text-Green">  <Navbar>
+      </Navbar></div>
   )
 }
 
