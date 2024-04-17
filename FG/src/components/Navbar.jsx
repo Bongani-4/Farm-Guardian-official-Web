@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { FaBarsStaggered, FaXmark} from 'react-icons/fa6';
+import Banner from './Banner';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,6 +68,8 @@ const Navbar = () => {
                     )  ) }
                     </ul>
                   </div>
+                  <div>
+                     <Banner/>                  </div>
     </header>
   )
 }
