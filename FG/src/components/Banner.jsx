@@ -2,10 +2,11 @@ import React from 'react'
 
 const Banner = () => {
   return (
-    <div className='max-w-screen-2x1 container mx-auto xl:px-24 px-4 md:py-29 py-14'> 
-    <h1>  Find your job Here</h1>
-    </div>
-  )
+  <div className='max-w-screen-2xl container mx-auto xl:px-0 px-4 md:py-10 py-14'> 
+    <h1 className='text-5xl font-bold text-black mb-3 text-left'>Find your<span className='text-green'> job here</span></h1>
+  </div>
+);
+
 }
 
 export default Banner
