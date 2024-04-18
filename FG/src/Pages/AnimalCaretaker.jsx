@@ -85,9 +85,9 @@ const AnimalCaretaker = () => {
                <div className="bg-lightgrey md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12"> 
 
                
-                     <div> left</div>
+                     <div className="bg-white p-4 rounded"> left</div>
                      <div> <Jobs result ={result}/></div>
-                     <div> right</div>
+                     <div className="bg-white p-4 rounded"> right</div>
                    
                </div>
             </div>
