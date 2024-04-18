@@ -86,7 +86,7 @@ const AnimalCaretaker = () => {
 
                
                      <div className="bg-white p-4 rounded"> left</div>
-                     <div> <Jobs result ={result}/></div>
+                     <div className="col-span-2 bg-white p-4 rounded-sm"> <Jobs result ={result}/></div>
                      <div className="bg-white p-4 rounded"> right</div>
                    
                </div>
