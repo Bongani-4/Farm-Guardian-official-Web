@@ -79,8 +79,16 @@ const AnimalCaretaker = () => {
        
            <div>
              <Banner query = {query} handleInputChange ={handleInputChange}/>    
+              
+                 {/**main content data */}
+              
                <div>
-                    <Jobs result ={result}/>
+
+               
+                     <div> left</div>
+                     <div> <Jobs result ={result}/></div>
+                     <div> right</div>
+                   
                </div>
             </div>
     </div>
