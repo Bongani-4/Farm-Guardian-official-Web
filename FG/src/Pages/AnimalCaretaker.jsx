@@ -2,6 +2,7 @@ import  { useEffect, useState } from "react";
 import Navbar from '../components/Navbar'
 import Banner from '../components/Banner';
 import Card from "../components/Card";
+import Jobs from "./Jobs";
 
 const AnimalCaretaker = () => {
 
@@ -70,6 +71,7 @@ const AnimalCaretaker = () => {
        return filteredJobs.map((data, i) => <Card key={i}  data= {data}/> )
 
    }
+   const result = filteredData(jobs, selectedCategory, query);
 
   return (
     <div className="text-Green"> 
@@ -77,6 +79,9 @@ const AnimalCaretaker = () => {
        
            <div>
              <Banner query = {query} handleInputChange ={handleInputChange}/>    
+               <div>
+                    <Jobs result ={result}/>
+               </div>
             </div>
     </div>
     
