@@ -11,7 +11,7 @@ const AnimalCaretaker = () => {
   const [jobs,setJobs] = useState([]);
 
 
-  useEffect(() => {
+  useEffect(() => { 
 
     fetch("jobs.json").then( res => res.json()).then(data => {
     
