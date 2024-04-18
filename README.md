@@ -7,5 +7,7 @@
 [![Vite](https://img.shields.io/badge/Vite-646CFF.svg?style=for-the-badge&logo=vite&logoColor=white&labelColor=646CFF)](https://vitejs.dev/)
 
   
-  FG is a startup company providing valuable services to agriculturist,founded by me.
+  FG is a startup company providing valuable services to agriculturist,founder: ME
+  
+  Further details to be posted...
 
