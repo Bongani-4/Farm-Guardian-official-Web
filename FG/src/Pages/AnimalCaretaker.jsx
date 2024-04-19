@@ -99,7 +99,7 @@ const AnimalCaretaker = () => {
           <div className="col-span-2 bg-white p-4 rounded-sm">
             {
               isLoading ? (<p> Collecting Jobs...</p>) : result.length > 0 ? (<Jobs result={result} />) : <>
-                <h3>{result.length} Jobs </h3>
+                <h3 className=" text lg font"> </h3>
                 <p>No Jobs found.</p>
               </>
             }
