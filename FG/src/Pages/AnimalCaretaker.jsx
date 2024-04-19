@@ -103,6 +103,10 @@ const AnimalCaretaker = () => {
       console.log(filteredJobs);
 
     }
+
+    /**slice the data based on current page */
+    const { startIndex, endIndex } = calculatePagerange();
+    filteredJobs = filteredJobs.slice(startIndex, endIndex)
     return filteredJobs.map((data, i) => <Card key={i} data={data} />)
 
   }
@@ -130,6 +134,21 @@ const AnimalCaretaker = () => {
               </>
 
             }
+
+
+            {/**pagination */}
+            {
+              result.length > 0 ? (
+                <div className=" flex justify-center mt-4 space-x-8">
+                  <button> Previous </button>
+                  <span> Page {curentPage} of  {Math.ceil(filteredItems.length / itemsPerPage)}</span>
+                  <button>  Next </button>
+
+                </div>
+
+              ) : ""
+            }
+
 
           </div>
 
