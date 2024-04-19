@@ -51,7 +51,17 @@ const AnimalCaretaker = () => {
 
   const handleClick = (event) => {
     setSelectedCategoryy(event.target.value)
+
   }
+
+  /**calculate  index range */
+  const calculatePagerange = () => {
+    const startIndex = (curentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return { startIndex, endIndex };
+  }
+
+
 
 
   //   main fuction
@@ -102,6 +112,7 @@ const AnimalCaretaker = () => {
                 <h3 className=" text lg font"> </h3>
                 <p>No Jobs found.</p>
               </>
+
             }
 
           </div>
