@@ -12,7 +12,7 @@ const AnimalCaretaker = () => {
 
   const [jobs, setJobs] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setisLoading] = useState(true);
 
   const [curentPage, setCurrentPage] = useState(1);
 
@@ -20,12 +20,12 @@ const AnimalCaretaker = () => {
 
 
   useEffect(() => {
-    setIsLoading(true);
+    setisLoading(true);
 
     fetch("jobs.json").then(res => res.json()).then(data => {
 
       setJobs(data);
-      setIsLoading(False);
+      setisLoading(false);
     })
   }, [])
 
@@ -96,7 +96,15 @@ const AnimalCaretaker = () => {
           <div className="bg-white p-4 rounded"> <SidesBar handleChange={handleChange} handleClick={handleClick} /> </div>
 
           {/**Job Cards */}
-          <div className="col-span-2 bg-white p-4 rounded-sm"> <Jobs result={result} /></div>
+          <div className="col-span-2 bg-white p-4 rounded-sm">
+            {
+              isLoading ? (<p> Collecting Jobs...</p>) : result.length > 0 ? (<Jobs result={result} />) : <>
+                <h3>{result.length} Jobs </h3>
+                <p>No Jobs found.</p>
+              </>
+            }
+
+          </div>
 
           {/**right side */}
           <div className="bg-white p-4 rounded"> right</div>
