@@ -4,7 +4,7 @@ import Banner from '../components/Banner';
 import Card from "../components/Card";
 import Jobs from "./Jobs";
 import { FiSidebar } from "react-icons/fi";
-import SideBar from "../sidebar/SideBar";
+import SidesBar from "../sidebar/SidesBar";
 
 const AnimalCaretaker = () => {
 
@@ -86,7 +86,7 @@ const AnimalCaretaker = () => {
               <div className="bg-lightgrey md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12"> 
 
                         {/**left side */}
-                     <div className="bg-white p-4 rounded"> <SideBar handleChange={handleChange} handleClick ={handleClick}/> </div>
+                     <div className="bg-white p-4 rounded"> <SidesBar handleChange={handleChange} handleClick ={handleClick}/> </div>
 
                       {/**Job Cards */}  
                      <div className="col-span-2 bg-white p-4 rounded-sm"> <Jobs result ={result}/></div>
