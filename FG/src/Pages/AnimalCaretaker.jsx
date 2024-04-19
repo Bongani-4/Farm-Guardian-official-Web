@@ -72,7 +72,7 @@ const AnimalCaretaker = () => {
   /**function to previous page */
   const previousPage = () => {
     if (curentPage > 1) {
-      setCurrentPage(- 1)
+      setCurrentPage(curentPage - 1);
     }
 
   }
@@ -140,9 +140,10 @@ const AnimalCaretaker = () => {
             {
               result.length > 0 ? (
                 <div className=" flex justify-center mt-4 space-x-8">
-                  <button> Previous </button>
-                  <span> Page {curentPage} of  {Math.ceil(filteredItems.length / itemsPerPage)}</span>
-                  <button>  Next </button>
+                  <button onClick={previousPage} disabled={curentPage === 1} className="hover:underline" > Previous </button>
+                  <span className="mx-2"> Page {curentPage} of  {Math.ceil(filteredItems.length / itemsPerPage)}</span>
+                  <button onClick={nextPage} disabled={curentPage === Math.ceil(filteredItems.length /
+                    itemsPerPage)} className="hover:underline">Next </button>
 
                 </div>
 
