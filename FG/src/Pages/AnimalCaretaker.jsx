@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar'
 import Banner from '../components/Banner';
 import Card from "../components/Card";
 import Jobs from "./Jobs";
+import sideBar from "../sidebar/sideBar";
+import { FiSidebar } from "react-icons/fi";
 
 const AnimalCaretaker = () => {
 
@@ -81,12 +83,15 @@ const AnimalCaretaker = () => {
              <Banner query = {query} handleInputChange ={handleInputChange}/>    
               
                  {/**main content data */}
-              
-               <div className="bg-lightgrey md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12"> 
+              <div className="bg-lightgrey md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12"> 
 
-               
-                     <div className="bg-white p-4 rounded"> left</div>
+                        {/**left side */}
+                     <div className="bg-white p-4 rounded"> <sideBar handleChange={handleChange} handleClick={handleClick}/> </div>
+
+                      {/**Job Cards */}  
                      <div className="col-span-2 bg-white p-4 rounded-sm"> <Jobs result ={result}/></div>
+
+                        {/**right side */}
                      <div className="bg-white p-4 rounded"> right</div>
                    
                </div>
