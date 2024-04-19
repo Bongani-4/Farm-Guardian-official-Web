@@ -60,6 +60,22 @@ const AnimalCaretaker = () => {
     const endIndex = startIndex + itemsPerPage;
     return { startIndex, endIndex };
   }
+  /**function to next page */
+  const nextPage = () => {
+    if (curentPage < Math.ceil(filteredItems.length / itemsPerPage)) {
+      setCurrentPage(curentPage + 1);
+    }
+
+  }
+
+
+  /**function to previous page */
+  const previousPage = () => {
+    if (curentPage > 1) {
+      setCurrentPage(- 1)
+    }
+
+  }
 
 
 
