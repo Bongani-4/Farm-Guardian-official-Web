@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Salary = () => {
+const Salary = ({ handleChange, handleClick }) => {
     return (
         <div>Salary</div>
     )
