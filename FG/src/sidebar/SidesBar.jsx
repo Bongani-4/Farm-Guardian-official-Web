@@ -2,6 +2,7 @@ import React from 'react';
 import Location from './Location';
 import Salary from './Salary';
 import JobPostinfData from './JobPostinfData';
+import WorkExperience from './WorkExperience';
 
 const SidesBar = ({ handleChange, handleClick }) => {
   return (
@@ -10,6 +11,7 @@ const SidesBar = ({ handleChange, handleClick }) => {
       <Location handleChange={handleChange} />
       <Salary handleChange={handleChange} handleClick={handleClick} />
       <JobPostinfData handleChange={handleChange} />
+      <WorkExperience handleChange={handleChange} />
 
 
 
