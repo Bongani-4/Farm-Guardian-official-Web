@@ -94,9 +94,12 @@ const AnimalCaretaker = () => {
       filteredJobs = filteredJobs.filter(({ jobLocation, maxPrice, experienceLevel, salaryType, employmentType
         , postingDate }) => (
 
-        jobLocation.toLowerCase() === selected.toLowerCase() || parseInt(maxPrice) <= parseInt(selected)
+        jobLocation.toLowerCase() === selected.toLowerCase()
+        || postingDate >= selected
+        || parseInt(maxPrice) <= parseInt(selected)
         || salaryType.toLowerCase() === selected.toLowerCase()
         || employmentType.toLowerCase() === selected.toLowerCase()
+
 
 
       ));
