@@ -161,6 +161,7 @@ const AnimalCaretaker = () => {
           {/**right side */}
           <div className="bg-white p-4 rounded"><NewsLetter /></div>
 
+
         </div>
       </div>
     </div>
