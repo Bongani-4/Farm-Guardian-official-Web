@@ -89,7 +89,7 @@ const AnimalCaretaker = () => {
       filteredJobs = filteredItems;
     }
 
-    //category filtering 
+    //category filtering f
     if (selected) {
       filteredJobs = filteredJobs.filter(({ jobLocation, maxPrice, experienceLevel, salaryType, employmentType
         , postingDate }) => (
