@@ -99,6 +99,7 @@ const AnimalCaretaker = () => {
         || parseInt(maxPrice) <= parseInt(selected)
         || salaryType.toLowerCase() === selected.toLowerCase()
         || employmentType.toLowerCase() === selected.toLowerCase()
+        || experienceLevel.toLowerCase() === selected.toLowerCase()
 
 
 
