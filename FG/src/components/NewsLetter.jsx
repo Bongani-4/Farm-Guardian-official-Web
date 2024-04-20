@@ -23,7 +23,7 @@ const NewsLetter = () => {
                 <h3 className='text-lg font-bold mt-12 mb-2 flex items-center gap-2'>
                     <FaRocket />
                     Get noticed faster</h3>
-                <p className='text-black/75 text-base mb-4 '> Receive notifications and never miss out on new openings </p>
+                <p className='text-black/75 text-base mb-4 '> Stand out and increase your chances of finding your dream job. </p>
                 <div className='w-full space-y-4'>
 
                     <input type='submit' value={"Upload your Resume "} className='w-full  block
