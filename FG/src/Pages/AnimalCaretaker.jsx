@@ -5,6 +5,7 @@ import Card from "../components/Card";
 import Jobs from "./Jobs";
 import { FiSidebar } from "react-icons/fi";
 import SidesBar from "../sidebar/SidesBar";
+import NewsLetter from "../components/NewsLetter";
 
 const AnimalCaretaker = () => {
 
@@ -158,7 +159,7 @@ const AnimalCaretaker = () => {
           </div>
 
           {/**right side */}
-          <div className="bg-white p-4 rounded"> right</div>
+          <div className="bg-white p-4 rounded"><NewsLetter /></div>
 
         </div>
       </div>
