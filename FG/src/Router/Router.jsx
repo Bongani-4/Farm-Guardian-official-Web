@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/AnimalCaretaker", element: <AnimalCaretaker /> },
       { path: "/", element: <Home /> },
-      { path: "/post-job", elemennt: <CreateJob /> }
+      { path: "/post-job", element: <CreateJob /> }
 
 
 
