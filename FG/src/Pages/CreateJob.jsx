@@ -9,9 +9,11 @@ const CreateJob = () => {
         formState: { errors },
     } = useForm()
 
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = (data) => {
+        console.log(data)
+    }
 
-    console.log(watch("example")) // watch input value by passing the name of it
+
 
     return (
         <div className=' max-w-screen-2x1 container mx-auto xl:px-24 px-24'>
@@ -19,13 +21,13 @@ const CreateJob = () => {
             {/**forms */}
             <div className='bg-[#b3d39a] py-10px-4 lg:px-16'>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input defaultValue="test" {...register("example")} />
+                    <div className='flex flex-col lg:flex-row items-center justify-between gap-8'>
+                        <div className='lg:w-1/2 w-full'>  </div>
 
-                    <input {...register("exampleRequired", { required: true })} />
-                    {errors.exampleRequired && <span>This field is required</span>}
+                    </div>
 
                     <input type="submit" />
-                </form>F
+                </form>
 
             </div>
         </div>
