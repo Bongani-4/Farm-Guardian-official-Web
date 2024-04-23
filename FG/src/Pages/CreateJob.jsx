@@ -26,7 +26,7 @@ const CreateJob = () => {
                             <label className='block mb-2 text-lg'>
                                 Job Title
                             </label>
-                            <input type='text' placeholder='First name'{...register("First name"), { required: true, maxlength: 80 }}> </input>
+                            <input type='text' defaultValue={"Web developer"} {...register("jobTitle")} />
                         </div>
 
                     </div>
