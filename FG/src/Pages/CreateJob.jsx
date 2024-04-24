@@ -23,8 +23,10 @@ const CreateJob = () => {
 
                 {/**forms */}
                 <div className='bg-[#b3d39a] py-10 px-4 lg:px-16'>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className='flex flex-col lg:flex-row items-center justify-between gap-8'>
+                    <form onSubmit={handleSubmit(onSubmit)} className='space-y-5'>
+
+                        {/**1st row */}
+                        <div className='create-job-flex'>
                             <div className='lg:w-1/2 w-full'>
                                 <label className='block mb-2 text-lg'>
                                     Job Title
@@ -38,6 +40,25 @@ const CreateJob = () => {
                                 </label>
                                 <input type='text' placeholder='Ex: Farm Guardian'
                                     {...register("companyName")} className='create-job-input' />
+                            </div>
+
+                        </div>
+
+                        {/**2nd row */}
+                        <div className='create-job-flex'>
+                            <div className='lg:w-1/2 w-full'>
+                                <label className='block  mb-2 text-lg'>
+                                    Minimum Salary
+                                </label>
+                                <input type='text' placeholder="$20k"
+                                    {...register("minPrice")} className='create-job-input' />
+                            </div>
+                            <div className='lg:w-1/2 w-full'>
+                                <label className='block  mb-2 text-lg'>
+                                    Maximum Salary
+                                </label>
+                                <input type='text' placeholder="$120k"
+                                    {...register("maxPrice")} className='create-job-input' />
                             </div>
 
                         </div>
