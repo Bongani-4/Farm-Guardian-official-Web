@@ -31,7 +31,7 @@ const CreateJob = () => {
                                 <label className='block mb-2 text-lg'>
                                     Job Title
                                 </label>
-                                <input type='text' defaultValue={"Animal caretaker"}
+                                <input type='text' placeholder="Animal caretaker"
                                     {...register("jobTitle")} className='create-job-input' />
                             </div>
                             <div className='lg:w-1/2 w-full'>
@@ -69,23 +69,24 @@ const CreateJob = () => {
                                 <label className='block  mb-2 text-lg'>
                                     Salary Type</label>
 
-                                <select {...register("Title", { required: true })}>
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Miss">Miss</option>
-                                    <option value="Dr">Dr</option>
+                                <select {...register("salaryType")} className='create-job-input'>
+                                    <option value="">n/a</option>
+                                    <option value="Hourly">Hourly</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Annually">Yearly</option>
                                 </select>
                             </div>
+
                             <div className='lg:w-1/2 w-full'>
                                 <label className='block  mb-2 text-lg'>
                                     Job Location    </label>
-                                <input type='text' placeholder="$120k"
+                                <input type='text' placeholder="ex: Cape Town"
                                     {...register("jobLocation")} className='create-job-input' />
                             </div>
 
                         </div>
 
-                        <input type="submit" className='my-5' />
+                        <input type="submit" className='block mt-12 bg-[#3a643a] text-white font-semibold px-8 py-2 rounded-sm cursor-pointer' />
                     </form>
 
                 </div>
