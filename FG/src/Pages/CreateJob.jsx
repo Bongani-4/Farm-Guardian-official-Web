@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import Navbar from '../components/Navbar'
+import CreatableSelect from 'react-select/creatable';
+
 
 const CreateJob = () => {
+    const [selectedOption, setSelectedOption] = useState(null);
     const {
         register,
         handleSubmit,
@@ -10,9 +13,113 @@ const CreateJob = () => {
         formState: { errors },
     } = useForm()
 
+
     const onSubmit = (data) => {
         console.log(data)
     }
+
+    const options = [
+        { value: "JavaScript", label: "JavaScript" },
+        { value: "Python", label: "Python" },
+        { value: "Java", label: "Java" },
+        { value: "C++", label: "C++" },
+        { value: "Ruby", label: "Ruby" },
+        { value: "Swift", label: "Swift" },
+        { value: "PHP", label: "PHP" },
+        { value: "HTML/CSS", label: "HTML/CSS" },
+        { value: "SQL", label: "SQL" },
+        { value: "R", label: "R" },
+        { value: "Go", label: "Go" },
+        { value: "Kotlin", label: "Kotlin" },
+        { value: "TypeScript", label: "TypeScript" },
+        { value: "C#", label: "C#" },
+        { value: "Perl", label: "Perl" },
+        { value: "Scala", label: "Scala" },
+        { value: "Swift", label: "Swift" },
+        { value: "Objective-C", label: "Objective-C" },
+        { value: "Rust", label: "Rust" },
+        { value: "MATLAB", label: "MATLAB" },
+        { value: "Shell", label: "Shell" },
+        { value: "Assembly", label: "Assembly" },
+        { value: "Lua", label: "Lua" },
+        { value: "Dart", label: "Dart" },
+        { value: "Groovy", label: "Groovy" },
+        { value: "Visual Basic", label: "Visual Basic" },
+        { value: "Swift", label: "Swift" },
+        { value: "Perl", label: "Perl" },
+        { value: "Rust", label: "Rust" },
+        { value: "Ruby on Rails", label: "Ruby on Rails" },
+        { value: "Spring Boot", label: "Spring Boot" },
+        { value: "Node.js", label: "Node.js" },
+        { value: "Express.js", label: "Express.js" },
+        { value: "React.js", label: "React.js" },
+        { value: "Vue.js", label: "Vue.js" },
+        { value: "Angular", label: "Angular" },
+        { value: "jQuery", label: "jQuery" },
+        { value: "Bootstrap", label: "Bootstrap" },
+        { value: "Sass", label: "Sass" },
+        { value: "Less", label: "Less" },
+        { value: "Redux", label: "Redux" },
+        { value: "GraphQL", label: "GraphQL" },
+        { value: "RESTful API", label: "RESTful API" },
+        { value: "Microservices", label: "Microservices" },
+        { value: "Docker", label: "Docker" },
+        { value: "Kubernetes", label: "Kubernetes" },
+        { value: "AWS", label: "AWS" },
+        { value: "Azure", label: "Azure" },
+        { value: "Google Cloud Platform", label: "Google Cloud Platform" },
+        { value: "Firebase", label: "Firebase" },
+        { value: "MongoDB", label: "MongoDB" },
+        { value: "MySQL", label: "MySQL" },
+        { value: "PostgreSQL", label: "PostgreSQL" },
+        { value: "SQLite", label: "SQLite" },
+        { value: "NoSQL", label: "NoSQL" },
+        { value: "Redis", label: "Redis" },
+        { value: "Elasticsearch", label: "Elasticsearch" },
+        { value: "Linux", label: "Linux" },
+        { value: "Unix", label: "Unix" },
+        { value: "Windows", label: "Windows" },
+        { value: "macOS", label: "macOS" },
+        { value: "Git", label: "Git" },
+        { value: "GitHub", label: "GitHub" },
+        { value: "GitLab", label: "GitLab" },
+        { value: "Bitbucket", label: "Bitbucket" },
+        { value: "Jira", label: "Jira" },
+        { value: "Confluence", label: "Confluence" },
+        { value: "Trello", label: "Trello" },
+        { value: "Slack", label: "Slack" },
+        { value: "Zoom", label: "Zoom" },
+        { value: "Microsoft Teams", label: "Microsoft Teams" },
+        { value: "Web Development", label: "Web Development" },
+        { value: "Mobile Development", label: "Mobile Development" },
+        { value: "Software Engineering", label: "Software Engineering" },
+        { value: "Data Science", label: "Data Science" },
+        { value: "Machine Learning", label: "Machine Learning" },
+        { value: "Artificial Intelligence", label: "Artificial Intelligence" },
+        { value: "Blockchain", label: "Blockchain" },
+        { value: "Cybersecurity", label: "Cybersecurity" },
+        { value: "DevOps", label: "DevOps" },
+        { value: "Agile Methodology", label: "Agile Methodology" },
+        { value: "Scrum", label: "Scrum" },
+        { value: "Kanban", label: "Kanban" },
+        { value: "Test-Driven Development (TDD)", label: "Test-Driven Development (TDD)" },
+        { value: "Behavior-Driven Development (BDD)", label: "Behavior-Driven Development (BDD)" },
+        { value: "Continuous Integration (CI)", label: "Continuous Integration (CI)" },
+        { value: "Continuous Deployment (CD)", label: "Continuous Deployment (CD)" },
+        { value: "Code Review", label: "Code Review" },
+        { value: "Technical Documentation", label: "Technical Documentation" },
+        { value: "Problem Solving", label: "Problem Solving" },
+        { value: "Critical Thinking", label: "Critical Thinking" },
+        { value: "Creativity", label: "Creativity" }];
+
+    // Add skills for an agriculturist
+    options.push(
+        { value: "Crop Management", label: "Crop Management" },
+        { value: "Soil Analysis", label: "Soil Analysis" },
+        { value: "Pest Control", label: "Pest Control" },
+        { value: "Irrigation Systems", label: "Irrigation Systems" }
+    );
+
 
 
 
@@ -111,6 +218,21 @@ const CreateJob = () => {
 
 
                         </div>
+
+                        {/**5th row */}
+                        <div>
+
+                            <label className='block  mb-2 text-lg'>
+                                Required Skill Set    </label>
+                            <CreatableSelect
+                                defaultValue={selectedOption}
+                                onChange={setSelectedOption}
+                                options={options}
+                                isMulti
+                                className='create-job-input py-4' />
+
+                        </div>
+
 
 
                         <input type="submit" className='block mt-12 bg-[#3a643a] text-white font-semibold px-8 py-2 rounded-sm cursor-pointer' />
