@@ -63,6 +63,28 @@ const CreateJob = () => {
 
                         </div>
 
+                        {/**3rd row */}
+                        <div className='create-job-flex'>
+                            <div className='lg:w-1/2 w-full'>
+                                <label className='block  mb-2 text-lg'>
+                                    Salary Type</label>
+
+                                <select {...register("Title", { required: true })}>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Miss">Miss</option>
+                                    <option value="Dr">Dr</option>
+                                </select>
+                            </div>
+                            <div className='lg:w-1/2 w-full'>
+                                <label className='block  mb-2 text-lg'>
+                                    Job Location    </label>
+                                <input type='text' placeholder="$120k"
+                                    {...register("jobLocation")} className='create-job-input' />
+                            </div>
+
+                        </div>
+
                         <input type="submit" className='my-5' />
                     </form>
 
