@@ -86,6 +86,33 @@ const CreateJob = () => {
 
                         </div>
 
+                        {/**4th row */}
+
+                        <div className='create-job-flex'>
+                            <div className='lg:w-1/2 w-full'>
+                                <label className='block  mb-2 text-lg'>
+                                    Job Posting Date    </label>
+
+                                <input type='date' placeholder="ex: 2023-10-05"
+                                    {...register("postingDate")} className='create-job-input' />
+                            </div>
+
+                            <div className='lg:w-1/2 w-full'>
+                                <label className='block  mb-2 text-lg'>
+                                    Experience </label>
+
+                                <select {...register("experienceLevel")} className='create-job-input'>
+                                    <option value="">n/a</option>
+                                    <option value="internship">Intership</option>
+                                    <option value="Any Experience">Any experience</option>
+                                    <option value="Annually">Work remotely</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+
+
                         <input type="submit" className='block mt-12 bg-[#3a643a] text-white font-semibold px-8 py-2 rounded-sm cursor-pointer' />
                     </form>
 
