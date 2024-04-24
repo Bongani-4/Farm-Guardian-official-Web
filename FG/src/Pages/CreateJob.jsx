@@ -239,7 +239,7 @@ const CreateJob = () => {
                         <div className='create-job-flex'>
                             <div className='lg:w-1/2 w-full'>
                                 <label className='block  mb-2 text-lg'>
-                                    Job Posting Date    </label>
+                                    Company Logo    </label>
 
                                 <input type='url' placeholder="Paste Company logo Url  https://www.fg.com/img1"
                                     {...register("companyLogo")} className='create-job-input' />
@@ -247,17 +247,41 @@ const CreateJob = () => {
 
                             <div className='lg:w-1/2 w-full'>
                                 <label className='block  mb-2 text-lg'>
-                                    Experience </label>
+                                    Employement Type </label>
 
                                 <select {...register("experienceLevel")} className='create-job-input'>
                                     <option value="">n/a</option>
-                                    <option value="internship">Intership</option>
-                                    <option value="Any Experience">Any experience</option>
-                                    <option value="Annually">Work remotely</option>
+                                    <option value="Full time">Full-time</option>
+                                    <option value="Part Time">Part-time</option>
+                                    <option value="Temporary">Temporary</option>
                                 </select>
                             </div>
 
 
+                        </div>
+
+
+                        {/**7th row */}
+
+                        <div className=' w-full'>
+
+                            <label className='block  mb-2 text-lg'>
+                                Job Descriptions    </label>
+                            <textarea className=' w-full pl-3 py-1.5 focus:outline-none '
+                                rows={6}
+                                placeholder='Job Description'
+                                {...register("description")} />
+
+                        </div>
+
+                        {/**last row */}
+
+                        <div>
+                            <label className='block mb-2 text-lg'> Job posted by
+                                <input type='email' placeholder="exmple@mail.com"
+                                    {...register("PostedBy")} className='create-job-input ' />
+
+                            </label>
                         </div>
 
 
