@@ -15,6 +15,7 @@ const CreateJob = () => {
 
 
     const onSubmit = (data) => {
+        data.skills = selectedOption;
         console.log(data)
     }
 
@@ -112,7 +113,7 @@ const CreateJob = () => {
         { value: "Critical Thinking", label: "Critical Thinking" },
         { value: "Creativity", label: "Creativity" }];
 
-    // Add skills for an agriculturist
+    // Adding skills for an agriculturist
     options.push(
         { value: "Crop Management", label: "Crop Management" },
         { value: "Soil Analysis", label: "Soil Analysis" },
@@ -230,6 +231,32 @@ const CreateJob = () => {
                                 options={options}
                                 isMulti
                                 className='create-job-input py-4' />
+
+                        </div>
+
+                        {/**6th row */}
+
+                        <div className='create-job-flex'>
+                            <div className='lg:w-1/2 w-full'>
+                                <label className='block  mb-2 text-lg'>
+                                    Job Posting Date    </label>
+
+                                <input type='url' placeholder="Paste Company logo Url  https://www.fg.com/img1"
+                                    {...register("companyLogo")} className='create-job-input' />
+                            </div>
+
+                            <div className='lg:w-1/2 w-full'>
+                                <label className='block  mb-2 text-lg'>
+                                    Experience </label>
+
+                                <select {...register("experienceLevel")} className='create-job-input'>
+                                    <option value="">n/a</option>
+                                    <option value="internship">Intership</option>
+                                    <option value="Any Experience">Any experience</option>
+                                    <option value="Annually">Work remotely</option>
+                                </select>
+                            </div>
+
 
                         </div>
 
