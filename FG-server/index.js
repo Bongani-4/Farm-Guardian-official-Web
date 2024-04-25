@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 require("dotenv").config();
 
 //middleware
-app.use(express.json);
+app.use(express.json());
 app.use(cors());
 
 const { MongoClient, ServerApiVersion } = require("mongodb");
@@ -32,19 +32,17 @@ async function run() {
     //post job
     app.post("/post-job", async (req, res) => {
       const body = req.body;
-      body.createAt() = new Date();
+      body.createAt = new Date();
       //console.log(body)
 
       const result = await JobsCollections.insertOne(body);
-      if(result.insertedId)
-      {
+      if (result.insertedId) {
         return res.status(200).send(result);
-
-      }
-      else{
+      } else {
         return res.status(400).send({
           message: "can not insert! try again later",
-      status: false})
+          status: false,
+        });
       }
     });
 
@@ -65,10 +63,6 @@ async function run() {
   }
 }
 run().catch(console.dir);
-
-app.get("/", (req, res) => {
-  res.send("ahh ta Bongs");
-});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
