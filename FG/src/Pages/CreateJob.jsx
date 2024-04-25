@@ -8,7 +8,7 @@ const CreateJob = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const {
         register,
-        handleSubmit,
+        handleSubmit, reset,
         watch,
         formState: { errors },
     } = useForm()
@@ -28,6 +28,10 @@ const CreateJob = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                if (result.acknowledged === true) {
+                    alert("Job post was successfull.")
+                }
+                reset()
             })
             .catch(error => {
                 console.error("Error:", error);
