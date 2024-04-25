@@ -33,7 +33,19 @@ async function run() {
     app.post("/post-job", async (req, res) => {
       const body = req.body;
       body.createAt() = new Date();
-      console.log(body)
+      //console.log(body)
+
+      const result = await JobsCollections.insertOne(body);
+      if(result.insertedId)
+      {
+        return res.status(200).send(result);
+
+      }
+      else{
+        return res.status(400).send({
+          message: "can not insert! try again later",
+      status: false})
+      }
     });
 
     //get all Jobs
