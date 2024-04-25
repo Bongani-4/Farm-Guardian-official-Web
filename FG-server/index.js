@@ -52,6 +52,16 @@ async function run() {
       res.send(jobs);
     });
 
+    //get jobs by email
+    app.get("/MyJobs/:email", async (req, res) => {
+      // console.log(req.params.email);
+
+      const jobs = await JobsCollections.find({
+        PostedBy: req.params.email,
+      }).toArray();
+      res.send(jobs);
+    });
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
