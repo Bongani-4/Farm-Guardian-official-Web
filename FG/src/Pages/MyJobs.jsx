@@ -41,12 +41,12 @@ const MyJobs = () => {
 
                 {/**table  */}
                 <section className="py-1 bg-blueGray-50">
-                    <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
+                    <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-5">
                         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
                             <div className="rounded-t mb-0 px-4 py-3 border-0">
                                 <div className="flex flex-wrap items-center">
                                     <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-                                        <h3 className="font-semibold text-base text-blueGray-700">Page Visits</h3>
+                                        <h3 className="font-semibold text-base text-blueGray-700">All Jobs</h3>
                                     </div>
                                     <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
                                         <button className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
