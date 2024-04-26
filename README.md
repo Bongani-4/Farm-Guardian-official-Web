@@ -6,7 +6,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white&labelColor=38B2AC)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF.svg?style=for-the-badge&logo=vite&logoColor=white&labelColor=646CFF)](https://vitejs.dev/)
 
-  FG react mobile app , FG is a startup company providing valuable services to agriculturist
+  FG react web app , FG is a startup company providing valuable services to agriculturist
 
 ##### Founder and Author: Bongani Njathu
 
