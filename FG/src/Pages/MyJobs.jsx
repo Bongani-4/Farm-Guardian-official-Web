@@ -90,31 +90,34 @@ const MyJobs = () => {
                                                         {index + 1}
                                                     </th>
                                                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                                                        4,569
+                                                        {job.jobTitle}
                                                     </td>
                                                     <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                        340
+                                                        {job.companyName}
                                                     </td>
                                                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                         <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                        46,53%
+                                                        ${job.minPrice}- ${job.maxPrice}
                                                     </td>
                                                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                         <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                        80,53%
+                                                        <button> <Link to={`/edit-job/${job?._id}`}> Edit</Link></button>
                                                     </td>
                                                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                         <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                        80,53%
+                                                        <button onClick={() => handleDelete(job._id)} className='bg-red-700 py-2 px-6 text-white rounded-sm '> Delete</button>
                                                     </td>
 
 
                                                 </tr>
+
+
                                             )
                                             )}
 
 
                                     </tbody>
+
 
                                 </table>
                             </div>
