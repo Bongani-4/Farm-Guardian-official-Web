@@ -9,11 +9,13 @@ const MyJobs = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`http://localhost:3000/MyJobs/Bong.FG@gmail.com`).then(res => res.json().then(data => { setJobs(data) }))
+        fetch(`http://localhost:3000/MyJobs/Bong.FG@gmail.com`)
+            .then(res => res.json())
+            .then(data => { setJobs(data) })
 
     }, [])
     return (
-        <div>
+        <div className='max-w-screen-2x1 '>
 
             <Navbar />
         </div>
