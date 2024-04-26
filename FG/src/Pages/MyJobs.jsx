@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom';
+
 
 const MyJobs = () => {
     const email = "Bong.FG@gmail.com";
@@ -49,7 +51,8 @@ const MyJobs = () => {
                                         <h3 className="font-semibold text-base text-blueGray-700">All Jobs</h3>
                                     </div>
                                     <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                                        <button className="bg-[#06be06] text-white active:bg-green text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Post a New Job</button>
+                                        <Link to="/post-job"> <button className="bg-[#06be06] text-white active:bg-green text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">New Job</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -59,16 +62,22 @@ const MyJobs = () => {
                                     <thead>
                                         <tr>
                                             <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                                Page name
+                                                NO.
                                             </th>
                                             <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                                Visitors
+                                                Title
                                             </th>
                                             <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                                Unique users
+                                                COMPANY NAME
                                             </th>
                                             <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                                Bounce rate
+                                                SALARY
+                                            </th>
+                                            <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                                EDIT
+                                            </th>
+                                            <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                                DELETE
                                             </th>
                                         </tr>
                                     </thead>
