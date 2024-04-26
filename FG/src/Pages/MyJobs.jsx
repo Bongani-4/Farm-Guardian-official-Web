@@ -23,6 +23,10 @@ const MyJobs = () => {
                     <h1 className='text-center'>
                         All My Jobs
                     </h1>
+                    <div>
+                        <input type='text' name='search' id='search' className='py-2 pl-3 border focus:outlune-none lg:w-6/12 mb-4 w-full ' />
+                        <button className='bg-green text-white font-semibold px-8 py-2 rounded-sm mb-4  '> Search </button>
+                    </div>
                 </div>
 
             </div>
