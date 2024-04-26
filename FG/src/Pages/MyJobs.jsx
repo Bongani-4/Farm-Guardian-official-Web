@@ -15,9 +15,17 @@ const MyJobs = () => {
 
     }, [])
     return (
-        <div className='max-w-screen-2x1 '>
-
+        <div>
             <Navbar />
+
+            <div className='max-w-screen-2x1  container mx-auto xl:px-24 px-4'>
+                <div className='my-jobs-container'>
+                    <h1 className='text-center'>
+                        All My Jobs
+                    </h1>
+                </div>
+
+            </div>
         </div>
     )
 }
