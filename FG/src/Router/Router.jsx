@@ -6,6 +6,7 @@ import About from "../Pages/About";
 import AnimalCaretaker from "../Pages/AnimalCaretaker";
 import CreateJob from "../Pages/CreateJob";
 import MyJobs from "../Pages/MyJobs";
+import UpdateJob from "../Pages/UpdateJob";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
       { path: "/AnimalCaretaker", element: <AnimalCaretaker /> },
       { path: "/", element: <AnimalCaretaker /> },
       { path: "/post-job", element: <CreateJob /> },
-      { path: "/my-job", element: <MyJobs /> }
+      { path: "/my-job", element: <MyJobs /> },
+      { path: "edit-job/:id", element: <UpdateJob />, loader: ({ params }) => fetch(`http://localhost:3000/all-jobs/${params.id}`) }
 
 
 
