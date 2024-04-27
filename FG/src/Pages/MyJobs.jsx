@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-import { Link } from 'react-router-dom';
+import { Link, json } from 'react-router-dom';
 
 
 const MyJobs = () => {
@@ -9,18 +9,56 @@ const MyJobs = () => {
     const [searchText, setSearchText] = useState("");
     const [isLoading, setIsLoading] = useState(true);
 
+
+    // set current page
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 4;
+
     useEffect(() => {
         setIsLoading(true)
         fetch(`http://localhost:3000/MyJobs/Bong.FG@gmail.com`)
             .then(res => res.json())
-            .then(data => { setJobs(data) })
+            .then(data => {
+                setJobs(data)
+                setIsLoading(false)
+            })
 
-    }, []);
+
+    }, [searchText]);
+
+    //pagination
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentJobs = jobs.slice(indexOfFirstItem, indexOfLastItem);
+
+    //next and prev buttons
+    const nextPage = () => {
+        if (indexOfLastItem < jobs.length) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1)
+
+        }
+    }
 
     const handleSearch = () => {
         const filter = jobs.filter((job) => job.jobTitle.toLowerCase().indexOf(searchText.toLowerCase()) !== -1);
         setJobs(filter)
         setIsLoading(false)
+    }
+    const handleDelete = (id) => {
+        fetch(`http://localhost:3000/job/${id}`, {
+
+            method: "DELETE"
+        }).then(res => res, json).then(data => {
+            if (data.acknowledged === true) {
+                alert("Job was deleted successfull.")
+            }
+        })
+
     }
 
     return (
@@ -82,56 +120,65 @@ const MyJobs = () => {
                                         </tr>
                                     </thead>
 
-                                    <tbody>
-                                        {
-                                            jobs.map((job, index) => (
-                                                <tr key={index}>
-                                                    <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-                                                        {index + 1}
-                                                    </th>
-                                                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                                                        {job.jobTitle}
-                                                    </td>
-                                                    <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                        {job.companyName}
-                                                    </td>
-                                                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                        <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                        ${job.minPrice}- ${job.maxPrice}
-                                                    </td>
-                                                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                        <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                        <button> <Link to={`/edit-job/${job?._id}`}> Edit</Link></button>
-                                                    </td>
-                                                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                        <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                        <button onClick={() => handleDelete(job._id)} className='bg-red-700 py-2 px-6 text-white rounded-sm '> Delete</button>
-                                                    </td>
+                                    {isLoading ? (<div className='flex items-center justify-center h-20'><p>loading....</p></div>) : (
+                                        <tbody>
+                                            {
+                                                currentJobs.map((job, index) => (
+                                                    <tr key={index}>
+                                                        <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                                                            {index + 1}
+                                                        </th>
+                                                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                                                            {job.jobTitle}
+                                                        </td>
+                                                        <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                                            {job.companyName}
+                                                        </td>
+                                                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                                            <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                                                            ${job.minPrice}- ${job.maxPrice}
+                                                        </td>
+                                                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                                            <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                                                            <button> <Link to={`/edit-job/${job?._id}`}> Edit</Link></button>
+                                                        </td>
+                                                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                                            <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                                                            <button onClick={() => handleDelete(job._id)} className='bg-red-700 py-2 px-6 text-white rounded-sm '> Delete</button>
+                                                        </td>
 
 
-                                                </tr>
+                                                    </tr>
 
 
-                                            )
-                                            )}
+                                                )
+                                                )}
 
 
-                                    </tbody>
+                                        </tbody>)}
+
+
 
 
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <footer className="relative pt-8 pb-6 mt-16">
-                        <div className="container mx-auto px-4">
-                            <div className="flex flex-wrap items-center md:justify-between justify-center">
-                                <div className="w-full md:w-6/12 px-4 mx-auto text-center">
 
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
+                    {/**pagination */}
+                    <div className='flex justify-center text-black space-x-8 '>
+                        {
+                            currentPage > 1 && (
+                                <button className='hover:underline' onClick={prevPage}> previous</button>
+                            )
+                        }
+                        {
+                            indexOfLastItem < jobs.length && (
+                                <button className='hover:underline' onClick={nextPage}> Next</button>
+                            )
+                        }
+                    </div>
+
                 </section>
 
 

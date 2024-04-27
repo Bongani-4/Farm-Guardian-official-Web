@@ -8,7 +8,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_Pass}@farmguardian.dkpcm72.mongodb.net/?retryWrites=true&w=majority&appName=FarmGuardian`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -60,6 +60,14 @@ async function run() {
         PostedBy: req.params.email,
       }).toArray();
       res.send(jobs);
+    });
+
+    //delete job
+    app.delete("/job/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const result = await JobsCollections.deleteOne(filter);
+      res.send(result);
     });
 
     // Send a ping to confirm a successful connection

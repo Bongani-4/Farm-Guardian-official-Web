@@ -148,6 +148,7 @@ const CreateJob = () => {
     return (
         <div>
             <Navbar />
+
             <div className=' max-w-screen-2x1 mt-5 container mx-auto xl:px-24 px-24'>
 
                 {/**forms */}
