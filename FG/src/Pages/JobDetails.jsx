@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-
+import Swal from 'sweetalert2'
 const JobDetails = () => {
     const { id } = useParams();
     const [job, setJob] = useEffect([])
@@ -9,8 +9,15 @@ const JobDetails = () => {
 
     }, [])
 
-    const handleApply = () => {
-
+    const handleApply = async () => {
+        const { value: url } = await Swal.fire({
+            input: "url",
+            inputLabel: "URL address",
+            inputPlaceholder: "Enter the URL"
+        });
+        if (url) {
+            Swal.fire(`Entered URL: ${url}`);
+        }
     }
 
     return (
