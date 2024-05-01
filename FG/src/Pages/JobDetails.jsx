@@ -21,7 +21,9 @@ const JobDetails = () => {
     }
 
     return (
-        <div className='max-w-screen-2x1 container mx-auto x1:px-24  px-4'>JobDetails :{id}
+        <div className='max-w-screen-2x1 container mx-auto x1:px-24  px-4'>
+            <PageHeader title={"Detailed job page"} path={"single job"} />
+            <h2>JobDetails :{id}</h2>
             <h1>
                 {job.jobTitle}
             </h1>
@@ -29,7 +31,7 @@ const JobDetails = () => {
                 Apply <Now></Now>
             </button>
         </div>
-    )
+       
 }
 
 export default JobDetails
