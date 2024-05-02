@@ -11,14 +11,14 @@ const Navbar = () => {
   }
   const navItems = [
 
-    { path: "/", title: "Search here" },
+    { path: "/AnimalCaretaker", title: "Search here" },
     { path: "/my-job", title: "My Jobs" },
     { path: "/post-job", title: "Post a Job" },
   ]
   return (
     <header className='max-w-screen-2x1 container mx-auto xl:px-0 px-4'>
       <nav className='flex justify-between items-center py-6'>
-        <a href="/" className='flex items-center gap-2 text-3xl' > Job Opportunities</a>
+        <a href="/AnimalCaretaker" className='flex items-center gap-2 text-3xl' > Job Opportunities</a>
         {/*for larger devces */}
         <ul className='hidden md:flex gap-12'>
           {
