@@ -18,7 +18,8 @@ const Navbar = () => {
     { path: "/post-job", title: "Post a Job" },
   ]
   return (
-    <header className='max-w-screen-2x1 container mx-auto xl:px-0 px-4'>
+    <header className='max-w-screen-2x1 container mt-n15 mx-auto xl:px-0 px-4'>
+
       <nav className='flex justify-between items-center py-6'>
         <a href="/" className="logo"> <img src={farmGuardianLogo} alt="Farm Guardian Logo" /></a>
         {/*for larger devces */}
