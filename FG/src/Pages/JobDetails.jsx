@@ -31,7 +31,8 @@ const JobDetails = () => {
                 Apply <Now></Now>
             </button>
         </div>
-       
+    )
+
 }
 
 export default JobDetails
