@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { FaBarsStaggered, FaXmark } from 'react-icons/fa6';
+import '../Pages/LogIn.css';
+import farmGuardianLogo from '../assets/images/FarmGuardian.png';
 
 
 const Navbar = () => {
@@ -18,7 +20,7 @@ const Navbar = () => {
   return (
     <header className='max-w-screen-2x1 container mx-auto xl:px-0 px-4'>
       <nav className='flex justify-between items-center py-6'>
-        <a href="/AnimalCaretaker" className='flex items-center gap-2 text-3xl' > Job Opportunities</a>
+        <a href="/" className="logo"> <img src={farmGuardianLogo} alt="Farm Guardian Logo" /></a>
         {/*for larger devces */}
         <ul className='hidden md:flex gap-12'>
           {
