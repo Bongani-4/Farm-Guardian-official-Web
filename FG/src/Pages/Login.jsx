@@ -16,7 +16,7 @@ const Home = () => {
       <div className="content">
         <h2 className="anim lowerText">Simplify<br />your farming.</h2>
         <p className="anim">Farm smart with FG's free services to optimize profitability in your farming operations. Small or large company, we got you covered.</p>
-        <a href="#" className="btn anim">Join Now</a>
+        <a href="/RegisterForm" className="btn anim">Join Now</a>
       </div>
       <img src={featureImage} className="feature-img anim" alt="Farm Guardian Feature" />
     </div>
