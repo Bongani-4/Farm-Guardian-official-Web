@@ -1,4 +1,4 @@
- <img src="FG/src/assets/images/FarmGuardian.png" alt="logo" width="420">
+
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg?style=for-the-badge&labelColor=lightgrey)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=black&labelColor=FFCA28)](https://firebase.google.com/)
@@ -6,11 +6,19 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white&labelColor=38B2AC)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF.svg?style=for-the-badge&logo=vite&logoColor=white&labelColor=646CFF)](https://vitejs.dev/)
 
-  FG react web app , FG is a startup company providing valuable services to agriculturist
+
+
+
 
 ##### Founder and Author: Bongani Njathu
 
 ##### April 17, 2024
   
+ 
   Further details to be posted...
+
+  ### Highlight
+
+  <img src="FG/mockup/Screenshot (240).png" alt="login page" width="920">
+  
 
