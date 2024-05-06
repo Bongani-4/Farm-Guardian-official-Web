@@ -15,5 +15,32 @@ export function AuthProvider({ children }) {
         const unsubscribe = onAuthStateChanged(auth, initializeUser);
         return unsubscribe;
     }, [])
+
+    async function initializeUser(user) {
+        if (user) {
+
+            setCurrentUser({ ...user });
+            setUserLoggedIn(true);
+        }
+        else {
+            setCurrentUser(null);
+            setUserLoggedIn(false);
+        }
+
+        setLoading(false);
+
+    }
+
+    const value = {
+        currentUser,
+        userLoggedIn,
+        loading
+    }
+
+    return (
+        <AuthContext.Provider value={value}>
+            {!loading && children}
+        </AuthContext.Provider>
+    )
 }
 
