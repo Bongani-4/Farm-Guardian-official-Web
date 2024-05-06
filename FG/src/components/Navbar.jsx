@@ -4,8 +4,12 @@ import { FaBarsStaggered, FaXmark } from 'react-icons/fa6';
 import '../Pages/LogIn.css';
 import farmGuardianLogo from '../assets/images/FarmGuardian.png';
 import profilePic from '../assets/images/profilePic.png'; // Import profile picture here, from register, sampl pic for now
+import { useAuth } from '../contexts/authContext';
+
 
 const Navbar = () => {
+  const { currentUser } = useAuth()
+  const UserName = { currentUser.displayName ? currentUser.displayName : currentUser.email }
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggler = () => {

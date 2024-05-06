@@ -10,6 +10,7 @@ import Login from "../Pages/Login"
 import UpdateJob from "../Pages/UpdateJob";
 import JobDetails from "../Pages/JobDetails";
 import RegisterForm from "../Pages/RegisterForm";
+import LoginForm from "../Pages/LoginForm";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "/", element: <AnimalCaretaker /> },
       { path: "/post-job", element: <CreateJob /> },
       { path: "/my-job", element: <MyJobs /> },
+      { path: "/LoginForm", element: <LoginForm /> },
       { path: "/RegisterForm", element: <RegisterForm /> },
       { path: "edit-job/:id", element: <UpdateJob />, loader: ({ params }) => fetch(`http://localhost:3000/all-jobs/${params.id}`) }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import './LogIn.css';
 import farmGuardianLogo from '../assets/images/FarmGuardian.png';
 import featureImage from '../assets/images/featureFG-removebg.png';
