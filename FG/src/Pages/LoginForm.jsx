@@ -1,63 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../firebase/Auth';
 import { useAuth } from '../contexts/authContext';
-
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { getAuth } from "firebase/auth";
-//import app from '../firebase/firebase.config';
-import { Navigate } from 'react-router-dom';
-
-const auth = getAuth();
+import { Link, Navigate } from 'react-router-dom';
 
 const Googleprovider = new GoogleAuthProvider();
-const handleLogin = () => {
-    signInWithPopup(auth, Googleprovider).then((result) => {
 
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-
-
-
-    }).catch((error) => {
-
-
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-    });
-}
 const LoginForm = () => {
+    const userLoggedIn = useAuth();
 
-    const { userLoggedIn } = useAuth()
-
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [isSigningIn, setIsSigningIn] = useState(false)
-    const [errorMessage, setErrorMessage] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isSigningIn, setIsSigningIn] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const onSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (!isSigningIn) {
-            setIsSigningIn(true)
-            await doSignInWithEmailAndPassword(email, password)
+            setIsSigningIn(true);
+            await doSignInWithEmailAndPassword(email, password);
         }
+    };
 
-    }
     const onGoogleSignIn = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (!isSigningIn) {
-            setIsSigningIn(true)
+            setIsSigningIn(true);
             doSignInWithGoogle().catch(err => {
-                setIsSigningIn(false)
-            })
+                setIsSigningIn(false);
+            });
         }
-
-    }
+    };
 
     return (
 

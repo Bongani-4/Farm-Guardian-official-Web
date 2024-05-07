@@ -10,7 +10,7 @@ const Home = () => {
       <nav>
         <img src={farmGuardianLogo} className="logo" alt="Farm Guardian Logo" />
         <div className="button-group" >
-          <a href="#" className="login-btn">Log In</a>
+          <a href="/loginForm" className="login-btn">Log In</a>
           <a href="Farm Guardian.apk" className="btn">Download app</a>
         </div>
       </nav>

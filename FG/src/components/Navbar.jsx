@@ -9,7 +9,7 @@ import { useAuth } from '../contexts/authContext';
 
 const Navbar = () => {
   const { currentUser } = useAuth()
-  const UserName = { currentUser.displayName ? currentUser.displayName : currentUser.email }
+  const UserName = currentUser.displayName ? currentUser.displayName : currentUser.email
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggler = () => {
