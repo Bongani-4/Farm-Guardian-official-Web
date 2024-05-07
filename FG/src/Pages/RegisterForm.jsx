@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './RegisterForm.css';
+import { getDatabase, ref, push, set } from 'firebase/database';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { app } from '../firebase/firebase.config';
 
 const RegisterForm = () => {
     const [username, setUsername] = useState('');
@@ -8,15 +11,16 @@ const RegisterForm = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Email  validation
+        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             setError('Please enter a valid email address.');
             return;
         }
+
         // Password strength validation
         const strongPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
         if (!strongPasswordRegex.test(password)) {
@@ -25,13 +29,35 @@ const RegisterForm = () => {
             );
             return;
         }
+
         // Confirm password matching validation
         if (password !== confirmPassword) {
             setError('Passwords do not match.');
             return;
         }
-        // validations pass,  registration logic
-        // console.log('Submitted');
+
+        // Validations pass, register user
+        try {
+            const auth = getAuth(app);
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // Save additional user data to Firebase Realtime Database
+            const database = getDatabase();
+            const usersRef = ref(database, 'users');
+            const newUserRef = push(usersRef);
+            const newUserKey = newUserRef.key;
+
+            await set(newUserRef, {
+                email: email,
+                username: username
+            });
+
+            console.log('User registered successfully:', user.uid);
+        } catch (error) {
+            console.error('Error registering user:', error.message);
+            setError(error.message);
+        }
     };
 
     return (
