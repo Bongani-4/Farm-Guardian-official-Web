@@ -3,6 +3,7 @@ import './RegisterForm.css';
 import { getDatabase, ref, push, set } from 'firebase/database';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../firebase/firebase.config';
+import Swal from 'sweetalert2'
 
 const RegisterForm = () => {
     const [username, setUsername] = useState('');
@@ -53,10 +54,23 @@ const RegisterForm = () => {
                 username: username
             });
 
-            console.log('User registered successfully:', user.uid);
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "You are successfully registered",
+                showConfirmButton: false,
+                timer: 3500
+            });
         } catch (error) {
             console.error('Error registering user:', error.message);
             setError(error.message);
+            Swal.fire({
+                position: "top-end",
+                icon: "warning",
+                title: "Registration faced issues",
+                showConfirmButton: false,
+                timer: 3500
+            });
         }
     };
 
