@@ -34,13 +34,13 @@ const LoginForm = () => {
 
     return (
 
-        <div className='h-screen w-full flex items-center justify-center'>
+        <div className='h-screen w-full flex items-center justify-center bg-[#caeec5]'>
             {userLoggedIn && (<Navigate to={'/'} replace={true} />)}
             <main className="w-full h-screen flex self-center place-content-center place-items-center">
-                <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
+                <div className="w-96 text-black space-y-5 p-4 shadow-xl border rounded-xl">
                     <div className="text-center">
                         <div className="mt-2">
-                            <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Welcome Back</h3>
+                            <h3 className="text-black text-xl font-semibold sm:text-2xl">Welcome to FG family</h3>
                         </div>
                     </div>
                     <form
@@ -48,7 +48,7 @@ const LoginForm = () => {
                         className="space-y-5"
                     >
                         <div>
-                            <label className="text-sm text-gray-600 font-bold">
+                            <label className="text-sm text-black font-bold">
                                 Email
                             </label>
                             <input
@@ -56,13 +56,13 @@ const LoginForm = () => {
                                 autoComplete='email'
                                 required
                                 value={email} onChange={(e) => { setEmail(e.target.value) }}
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                                className="w-full mt-2 px-3 py-2 text-black bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
                             />
                         </div>
 
 
                         <div>
-                            <label className="text-sm text-gray-600 font-bold">
+                            <label className="text-sm text-black font-bold">
                                 Password
                             </label>
                             <input
@@ -70,7 +70,7 @@ const LoginForm = () => {
                                 autoComplete='current-password'
                                 required
                                 value={password} onChange={(e) => { setPassword(e.target.value) }}
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                                className="w-full mt-2 px-3 py-2 text-black bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
                             />
                         </div>
 
@@ -81,7 +81,7 @@ const LoginForm = () => {
                         <button
                             type="submit"
                             disabled={isSigningIn}
-                            className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isSigningIn ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300'}`}
+                            className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isSigningIn ? 'bg-[#3da723] cursor-not-allowed' : 'bg-[#3ca721] hover:bg-[#12310d] hover:shadow-xl transition duration-300'}`}
                         >
                             {isSigningIn ? 'Signing In...' : 'Sign In'}
                         </button>
@@ -93,7 +93,7 @@ const LoginForm = () => {
                     <button
                         disabled={isSigningIn}
                         onClick={(e) => { onGoogleSignIn(e) }}
-                        className={`w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium  ${isSigningIn ? 'cursor-not-allowed' : 'hover:bg-gray-100 transition duration-300 active:bg-gray-100'}`}>
+                        className={`w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium bg-[#374132]  ${isSigningIn ? 'cursor-not-allowed' : 'hover:bg-[#6af149] transition duration-300 active:bg-gray-100'}`}>
                         <svg className="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_17_40)">
                                 <path d="M47.532 24.5528C47.532 22.9214 47.3997 21.2811 47.1175 19.6761H24.48V28.9181H37.4434C36.9055 31.8988 35.177 34.5356 32.6461 36.2111V42.2078H40.3801C44.9217 38.0278 47.532 31.8547 47.532 24.5528Z" fill="#4285F4" />
