@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../firebase/Auth';
+import { doPasswordReset, doSignInWithEmailAndPassword, doSignInWithGoogle } from '../firebase/Auth';
 import { useAuth } from '../contexts/authContext';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { Link, Navigate } from 'react-router-dom';
@@ -25,21 +25,56 @@ const LoginForm = () => {
                 window.location.href = '/';
             } catch (error) {
                 setErrorMessage(error.message);
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 3000);
             } finally {
                 setIsSigningIn(false);
             }
         }
+
+
+    };
+
+    const handleForgotPassword = () => {
+        if (email) {
+            doPasswordReset(email)
+                .then(() => {
+                    alert("Password reset email sent. Please check your email.");
+                })
+                .catch((error) => {
+                    setErrorMessage(error.message);
+                    setTimeout(() => {
+                        setErrorMessage('');
+                    }, 3000);
+
+                });
+        } else {
+            setErrorMessage("Please enter your email to reset password.");
+        }
+
     };
 
     const onGoogleSignIn = (e) => {
         e.preventDefault();
         if (!isSigningIn) {
             setIsSigningIn(true);
-            doSignInWithGoogle().catch(err => {
-                setIsSigningIn(false);
-            });
+            doSignInWithGoogle()
+                .then(() => {
+
+                    window.location.href = '/';
+                })
+                .catch((error) => {
+                    setErrorMessage(error.message);
+                    setIsSigningIn(false);
+
+                    setTimeout(() => {
+                        setErrorMessage('');
+                    }, 5000);
+                });
         }
     };
+
 
     return (
 
@@ -118,6 +153,9 @@ const LoginForm = () => {
                         </svg>
                         {isSigningIn ? 'Signing In...' : 'Continue with Google'}
                     </button>
+                    <div className="text-center">
+                        <Link to="#" onClick={handleForgotPassword} className="text-sm text-black hover:underline font-bold">Forgot Password?</Link>
+                    </div>
                 </div>
             </main>
         </div>
