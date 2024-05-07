@@ -14,11 +14,20 @@ const LoginForm = () => {
     const [isSigningIn, setIsSigningIn] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
+
     const onSubmit = async (e) => {
         e.preventDefault();
         if (!isSigningIn) {
             setIsSigningIn(true);
-            await doSignInWithEmailAndPassword(email, password);
+            try {
+                await doSignInWithEmailAndPassword(email, password);
+                // Navigate to home page after successful login
+                window.location.href = '/';
+            } catch (error) {
+                setErrorMessage(error.message);
+            } finally {
+                setIsSigningIn(false);
+            }
         }
     };
 
@@ -86,7 +95,7 @@ const LoginForm = () => {
                             {isSigningIn ? 'Signing In...' : 'Sign In'}
                         </button>
                     </form>
-                    <p className="text-center text-sm">Don't have an account? <Link to={'/register'} className="hover:underline font-bold">Sign up</Link></p>
+                    <p className="text-center text-sm">Don't have an account? <Link to={'/RegisterForm'} className="hover:underline font-bold">Sign up</Link></p>
                     <div className='flex flex-row text-center w-full'>
                         <div className='border-b-2 mb-2.5 mr-2 w-full'></div><div className='text-sm font-bold w-fit'>OR</div><div className='border-b-2 mb-2.5 ml-2 w-full'></div>
                     </div>
