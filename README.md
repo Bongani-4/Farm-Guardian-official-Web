@@ -19,6 +19,6 @@
 
   ### Highlight
 
-  <img src="FG/mockup/Screenshot (240).png" alt="login page" width="920">
+  <img src="screenshot/Screenshot (240).png" alt="login page" width="920">
   
 
