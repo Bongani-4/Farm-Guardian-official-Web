@@ -14,6 +14,10 @@ import "../App.css";
 import "../index.css"
 import "../../public/css/bootstrap.min.css";
 import "../../public/css/style.css"
+import "../../public/css/bootstrap.css"
+import "../../public/css/nivo-lightbox/default.css";
+
+import "../../public/css/nivo-lightbox/nivo-lightbox.css";
 
 
 
