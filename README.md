@@ -10,7 +10,7 @@
 
 
 
-##### Founder and Author: Bongani Njathu
+##### Founder & Author: Bongani Njathu
 
 ##### April 17, 2024
   
